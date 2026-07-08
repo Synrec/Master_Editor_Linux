@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="home.css">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="./scripts/_init.js"></script>
+    <script src="../_effekseer/effekseer_asmjs.min.js"></script>
+    <script src="../_threejs/build/three.cjs"></script>
+    <script src="../pixi/pixi.js"></script>
+    <script src="./scripts/tilemap.js"></script>
+    <script src="./scripts/parser.js"></script>
+    <script src="./scripts/functional.js"></script>
+    <script src="./scripts/draw.js"></script>
+    <script src="./home.js"></script>
+    <script src="../../project/js/plugins.js"></script>
+    <title id="version-info">
+        Synrec Master Editor
+    </title>
+    <script>AddKeyboardShortcuts()</script>
+</head>
+
+<body>
+    <script>
+        GetEditorVersion();
+    </script>
+    <div id="account-info" , class="account-data">
+        LOADING ACCOUNT DATA...
+        <script>
+            GenerateAccountInfo();
+        </script>
+    </div>
+    <div class="general-nav-bar">
+        <button class="general-nav-button" onclick="PlayTest()">
+            PLAY TEST
+        </button>
+        <button class="general-nav-button" onclick="OpenEngine()">
+            OPEN ENGINE
+        </button>
+        <button class="general-nav-button" onclick="AddPlugin()">
+            ADD LINKER PLUGIN
+        </button>
+    </div>
+    <div class="plugin-editor">
+        <div class="plugin-nav-bar">
+            <div class="search-div">
+                SEARCH
+                <input id="plugin-search-bar" class="plugin-search-bar" size="36" oninput="UpdatePluginList()" />
+            </div>
+            <div id="plugin-list" class="plugin-list">
+                PLUGIN LIST
+            </div>
+        </div>
+        <div id="display-area" class="display-area">
+            <div id="parameter-selection-list" class="parameter-selection-list"></div>
+            <div id="parameter-selection-editor" class="parameter-selection-editor"></div>
+        </div>
+    </div>
+    <div id="editor-message" class="editor-message"></div>
+    <script>LoadSynrecPlugins()</script>
+    <div class="site-footer">
+        <a href="https://www.fiverr.com/kylestclair/" class="fiverr"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://x.com/synrec_kaisyl" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/Synrec" class="github"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kyle-st-clair-jack-2a7642387/" class="linkedin"><i
+                class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@Onidrako" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://discord.gg/FZUqZGuvFH" class="discord"><i class="fa-brands fa-discord"></i></a>
+    </div>
+</body>
+
+</html>

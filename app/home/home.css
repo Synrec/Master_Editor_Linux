@@ -1,0 +1,976 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css');
+
+body {
+    background-image: linear-gradient(#00f, #000, #00f);
+    width: 97.5dvw;
+    height: 90dvh;
+    color: #fff;
+    font-size: 24px;
+    overflow-x: hidden;
+    /* align-items: center;
+    justify-content: center;
+    justify-items: center; */
+}
+
+a {
+    color: #e1ff00;
+}
+
+a:hover {
+    color: #00ff55;
+}
+
+#account-bar {
+    margin: 2.5%;
+    margin-top: 0;
+    color: #fff;
+    background-color: #000;
+    min-width: 80dvw;
+    min-height: 10dvh;
+    border-radius: 12px;
+    border-style: groove;
+    display: flex;
+    font-family: "Silkscreen", sans-serif;
+}
+
+.general-nav-bar {
+    margin: 2.5%;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding: 0.5%;
+    width: 94%;
+    background-color: #ffffff50;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    color: #fff;
+    border-style: groove;
+    border-radius: 12px;
+    font-size: 36px;
+    display: flex;
+}
+
+.general-nav-button {
+    width: 30%;
+    height: 5%;
+    background-color: #ffffff50;
+    color: #000;
+    border-radius: 12px;
+    font-size: 16px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+.general-nav-button:hover {
+    border-style: dotted;
+    animation-name: playTestHover;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes playTestHover {
+    0% {
+        background-color: #ffffff50;
+        color: #000;
+    }
+
+    100% {
+        background-color: #d9ffa850;
+        color: #fff;
+    }
+}
+
+.general-nav-button:active {
+    border-style: double;
+    animation-name: playTestActive;
+    animation-duration: 0.5s;
+    animation-timing-function: linear;
+    animation-fill-mode: forwards;
+}
+
+@keyframes playTestActive {
+    0% {
+        background-color: #d9ffa850;
+        color: #fff;
+    }
+
+    100% {
+        background-color: #27f1ff50;
+        color: #0f0;
+    }
+}
+
+#login-div {
+    margin: 1%;
+    padding: 1%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    justify-self: center;
+    align-items: center;
+    align-self: center;
+}
+
+#login-button {
+    width: 30dvw;
+    height: 5dvh;
+    border-radius: 12px;
+    border-style: groove;
+    background-color: #ffffff;
+    color: #000;
+}
+
+#login-button:hover {
+    background-color: #999999;
+    color: #000;
+}
+
+#login-button:active {
+    background-color: #000000;
+    color: #ffffff;
+    border-style: dashed;
+}
+
+#account-mini-info {
+    padding: 2%;
+    margin: 2%;
+    width: 46%;
+    background-color: #4e4e4e;
+    border-radius: 12px;
+    border-style: groove;
+    font-size: 18px;
+    justify-items: center;
+}
+
+#account-mini-command {
+    padding: 2%;
+    margin: 2%;
+    width: 46%;
+    background-color: #4e4e4e;
+    border-radius: 12px;
+    border-style: groove;
+    font-size: 24px;
+    display: block;
+    justify-items: center;
+}
+
+#full-account-div {
+    padding: 1%;
+    margin: 1%;
+    height: 20%;
+    width: 96%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border-style: groove;
+    display: flex;
+    justify-content: center;
+}
+
+#full-account-button {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #999999;
+    color: #000;
+}
+
+#full-account-button:hover {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#full-account-button:active {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #230083;
+    color: #ffffff;
+}
+
+#synrec-store-div {
+    padding: 1%;
+    margin: 1%;
+    height: 20%;
+    width: 96%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border-style: groove;
+    display: flex;
+    justify-content: center;
+}
+
+#synrec-store-button {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #999999;
+    color: #000;
+}
+
+#synrec-store-button:hover {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#synrec-store-button:active {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #230083;
+    color: #ffffff;
+}
+
+#logout-div {
+    padding: 1%;
+    margin: 1%;
+    height: 20%;
+    width: 96%;
+    background-color: #ffffff;
+    border-radius: 12px;
+    border-style: groove;
+    display: flex;
+    justify-content: center;
+}
+
+#logout-button {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #999999;
+    color: #000;
+}
+
+#logout-button:hover {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+#logout-button:active {
+    width: 96%;
+    border-radius: 12px;
+    background-color: #230083;
+    color: #ffffff;
+}
+
+.plugin-editor {
+    margin: 2.5%;
+    margin-top: 1%;
+    display: flex;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+}
+
+.plugin-nav-bar {
+    margin: 2.5%;
+    margin-top: 1%;
+    min-width: 25%;
+    max-width: 50%;
+    max-height: 65dvh;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    font-size: 1.5dvw;
+    overflow-y: auto;
+}
+
+.search-div {
+    margin-bottom: 2.5%;
+    margin-top: 0%;
+    padding: 2.5%;
+    width: 95%;
+    align-content: center;
+    background-color: #0000005f;
+    border-radius: 12px;
+    text-align: center;
+}
+
+.plugin-search-bar {
+    width: 97.5%;
+    height: auto;
+    border-radius: 8px;
+    align-self: center;
+}
+
+.plugin-list {
+    display: block;
+    font-size: 1.5dvw;
+}
+
+.plugin-load-button-div {
+    margin-bottom: 2.5%;
+}
+
+.plugin-load-button {
+    min-width: 97.5%;
+    border-radius: 12px;
+    border-style: double;
+    font-size: 16px;
+}
+
+.array-container-div {
+    margin: 2.5%;
+    margin-top: 1%;
+    min-width: 55%;
+    width: 100%;
+    max-width: 75%;
+    min-height: 65dvh;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    display: block;
+}
+
+.array-back-button {
+    width: 20dvw;
+    max-width: 20dvw;
+    height: 10%;
+    margin: 1%;
+    border-style: groove;
+    border-radius: 12px;
+    font-size: 2dvw;
+    text-align: center;
+    justify-content: center;
+}
+
+.array-blocks-div {
+    display: flex;
+}
+
+.array-name-div {
+    width: 75dvw;
+    max-width: 75dvw;
+    height: 10%;
+    margin: 2%;
+    margin-top: 1%;
+    text-align: center;
+    justify-content: center;
+    background-color: #00000050;
+    border-style: groove;
+    border-radius: 12px;
+    font-size: 3dvw;
+    font-family: "Silkscreen", sans-serif;
+}
+
+.array-edit-div {
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    display: flex;
+}
+
+.array-list-div {
+    width: 15dvw;
+    max-width: 15dvw;
+    height: 55dvh;
+    max-height: 55dvh;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    font-size: 3dvw;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.array-list-button {
+    align-self: center;
+    font-size: 16px;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    border-style: groove;
+    width: 95%;
+}
+
+.array-display-area {
+    margin: 2.5%;
+    margin-top: 1%;
+    min-width: 55%;
+    width: 100%;
+    max-width: 75%;
+    height: 55dvh;
+    /* max-height: 55dvh; */
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    display: flex;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.struct-container-div {
+    margin: 2.5%;
+    margin-top: 1%;
+    min-width: 55%;
+    width: 100%;
+    max-width: 75%;
+    min-height: 65dvh;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    display: block;
+}
+
+.struct-back-button {
+    width: 20dvw;
+    max-width: 20dvw;
+    height: 10%;
+    margin: 1%;
+    border-style: groove;
+    border-radius: 12px;
+    font-size: 2dvw;
+    text-align: center;
+    justify-content: center;
+}
+
+.struct-blocks-div {
+    display: flex;
+}
+
+.struct-name-div {
+    width: 75dvw;
+    max-width: 75dvw;
+    height: 10%;
+    margin: 2%;
+    margin-top: 1%;
+    text-align: center;
+    justify-content: center;
+    background-color: #00000050;
+    border-style: groove;
+    border-radius: 12px;
+    font-size: 3dvw;
+    font-family: "Silkscreen", sans-serif;
+}
+
+.struct-edit-div {
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    display: flex;
+    overflow-y: auto;
+}
+
+.struct-param-list-div {
+    width: 15dvw;
+    max-width: 15dvw;
+    height: 55dvh;
+    max-height: 55dvh;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    font-size: 3dvw;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    overflow-y: scroll;
+}
+
+.struct-parameter-button {
+    align-self: center;
+    font-size: 16px;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    border-style: groove;
+    width: 95%;
+}
+
+.struct-display-area {
+    margin: 2.5%;
+    margin-top: 1%;
+    min-width: 55%;
+    width: 100%;
+    max-width: 75%;
+    height: 55dvh;
+    max-height: 55dvh;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    display: flex;
+    overflow-y: auto;
+}
+
+.display-area {
+    margin: 2.5%;
+    margin-top: 1%;
+    min-width: 55%;
+    width: 100%;
+    max-width: 75%;
+    min-height: 65dvh;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    display: flex;
+}
+
+.parameter-selection-list {
+    margin: 2.5%;
+    width: 25%;
+    max-width: 25%;
+    height: 60dvh;
+    min-height: 60dvh;
+    background-color: #ffffff79;
+    border-radius: 6px;
+    display: block;
+    font-size: 1.5dvw;
+    overflow-y: scroll;
+}
+
+.plugin-main-parameter-button {
+    font-size: 16px;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    border-style: groove;
+    width: 100%;
+}
+
+.parameter-selection-editor {
+    margin: 2.5%;
+    width: 65%;
+    max-width: 65%;
+    height: 60dvh;
+    min-height: 60dvh;
+    background-color: #ffffff79;
+    border-radius: 6px;
+    display: block;
+    overflow-y: scroll;
+}
+
+.param-edit-div {
+    width: 92%;
+    max-width: 92%;
+    margin: 2%;
+    padding: 2%;
+    height: auto;
+    background-color: #ffffff79;
+    color: #000;
+    border-radius: 6px;
+    display: block;
+    overflow-y: auto;
+}
+
+.edit-input-container-div {
+    display: flex;
+}
+
+.text-edit-label {
+    font-size: 18px;
+    width: 33%;
+    max-width: 33%;
+}
+
+.text-edit-input {
+    width: 45%;
+    max-width: 45%;
+    margin-right: 2%;
+}
+
+.note-edit-input {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    min-height: 43dvh;
+    height: 43dvh;
+    border-radius: 6px;
+    border-style: groove;
+}
+
+.number-edit-label {
+    font-size: 18px;
+    width: 33%;
+    max-width: 33%;
+}
+
+.number-edit-input {
+    width: 45%;
+    max-width: 45%;
+    margin-right: 2%;
+}
+
+.edit-reset-button {
+    width: 25%;
+    max-width: 25%;
+}
+
+.edit-desc-div {
+    font-size: 18px;
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    align-content: center;
+    text-align: center;
+    border-radius: 12px;
+    background-color: #ffffff79;
+}
+
+.animation-display-div {
+    margin: 2%;
+    background-color: #000;
+    min-width: 96%;
+    width: 96%;
+    min-height: 43dvh;
+    height: 43dvh;
+    border-radius: 12px;
+    border-style: groove;
+}
+
+.map-display-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    min-height: 38dvh;
+    height: 38dvh;
+    border-radius: 12px;
+    border-style: groove;
+}
+
+.file-param-info {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    max-height: 50%;
+    border-radius: 12px;
+    border-style: groove;
+    overflow-x: hidden;
+}
+
+.file-edit-label {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    text-align: center;
+}
+
+.file-edit-input {
+    background-color: #fff;
+    color: #000;
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    height: 5dvh;
+    border-radius: 12px;
+    border-style: groove;
+    text-align: center;
+    font-size: 24px;
+}
+
+.file-container-div {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    overflow-y: auto;
+}
+
+.file-block-div {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    max-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.file-search-div {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    max-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+}
+
+.file-search-label {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    max-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    text-align: center;
+}
+
+.file-search-input {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    max-width: 96%;
+    width: 96%;
+    height: 3dvh;
+    border-radius: 12px;
+    border-style: groove;
+    font-size: 24px;
+    text-align: center;
+}
+
+.files-flex-div {
+    display: flex;
+    margin: 2%;
+    min-width: 96%;
+    max-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.file-dir-button {
+    margin: 2%;
+    min-width: 96%;
+    max-width: 96%;
+    width: 96%;
+    border-radius: 6px;
+    border-style: groove;
+    font-size: 32px;
+}
+
+.file-card-div {
+    display: block;
+    margin: 2%;
+    min-width: 40%;
+    max-width: 40%;
+    width: 40%;
+    min-height: 60%;
+    max-height: 60%;
+    height: 60%;
+    border-radius: 12px;
+    border-style: groove;
+}
+
+.file-card-button {
+    display: block;
+    background-color: #fff;
+    color: #444;
+    margin: 2%;
+    max-width: 96%;
+    max-height: 96%;
+    border-radius: 16px;
+    border-style: groove;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+}
+
+.card-file-aud {
+    margin: 2%;
+    max-width: 96%;
+    max-height: 96%;
+}
+
+.card-file-img {
+    margin: 2%;
+    max-width: 96%;
+    max-height: 96%;
+}
+
+.set-file-button {
+    display: block;
+    margin: 2%;
+    min-width: 96%;
+    max-width: 96%;
+    border-radius: 16px;
+    border-style: groove;
+}
+
+.array-list-item-div {
+    display: block;
+    border-radius: 12px;
+    border-style: groove;
+}
+
+.array-list-button-div {
+    display: flex;
+    overflow-x: hidden;
+}
+
+.array-list-del-button {
+    margin: 2%;
+    color: #000;
+    background: #f00;
+    border-radius: 12px;
+    border-style: groove;
+}
+
+.array-list-del-button:hover {
+    margin: 2%;
+    color: #f00;
+    background: #000;
+    border-radius: 12px;
+    border-style: groove;
+}
+
+.array-param-edit-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.array-add-param-edit-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: flex;
+}
+
+.array-display-add-button {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    justify-self: center;
+    align-items: center;
+    min-height: 10%;
+    height: 10%;
+}
+
+.array-display-container-div {
+    display: block;
+    overflow-x: hidden;
+    overflow-y: scroll;
+}
+
+.array-element-shift-div {
+    display: flex;
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+}
+
+.array-element-shift-button {
+    margin: 2%;
+    min-width: 46%;
+    width: 46%;
+    border-radius: 12px;
+    background-color: #e1ff00;
+}
+
+.array-element-shift-button:hover {
+    background-color: #00ff55;
+    border-radius: 21px;
+}
+
+.array-item-edit-block {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: flex;
+    background-color: #000;
+    color: #fff;
+}
+
+.array-anim-item-edit-block {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+    background-color: #555;
+    color: #fff;
+}
+
+.map-data-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+}
+
+.map-region-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+}
+
+.map-terrain-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+}
+
+.map-pos-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+}
+
+.event-data-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+}
+
+.event-name-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+}
+
+.event-pages-div {
+    margin: 2%;
+    min-width: 96%;
+    width: 96%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+}
+
+.site-footer {
+    width: 95%;
+    background-color: #00000050;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    z-index: 999999999;
+}

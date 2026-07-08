@@ -1,0 +1,17 @@
+{
+  "name": "Synrec_Master_RPG_Maker_Editor",
+  "version": "0.0.3",
+  "description": "A master editor program for Synrec's RPG Maker plugins.",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Kyle St Clair - Jack",
+  "license": "ISC",
+  "type": "commonjs",
+  "dependencies": {
+    "three": "^0.182.0"
+  },
+  "chromium-args": "--enable-webgl --ignore-gpu-blacklist --disable-blink-features=AutomationControlled --disable-dev-shm-usage --no-sandbox"
+}

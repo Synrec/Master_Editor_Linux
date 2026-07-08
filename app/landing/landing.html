@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="landing.css">
+    <script src="./landing.js"></script>
+    <title>Synrec Master Plugin Editor</title>
+</head>
+
+<body>
+    <div class="about-info">
+        <div class="name-info">
+            Synrec Master Editor
+        </div>
+        <div id="version-info" class="version-info">
+            v?
+            <script>
+                GetEditorVersion();
+            </script>
+        </div>
+        <div class="site-info">
+            <a href="https://synrec.dev/">Synrec Development Platform</a>
+        </div>
+    </div>
+    <div id="main-container">
+        <div id="bsky">
+            <script>
+                GetBskyPosts();
+            </script>
+        </div>
+        <div class="main">
+            <div class="landing-info">
+                <ul>
+                    <li>
+                        To use this editor, place it inside the plugins folder of your project.
+                        The master editor will attempt to use NodeJS functions to modify custom
+                        JSON and/or text files related to Synrec plugins for RPG Maker.
+                    </li>
+                    <li>
+                        The modified data will be read through a plugin to be installed in RPG Maker
+                        with the name Synrec_Master.js
+                    </li>
+                    <li>
+                        Without that plugin, the settings made here will be entirely useless.
+                    </li>
+                </ul>
+                To begin, push the start button.
+            </div>
+            <div class="landing-start">
+                <button class="landing-button" onclick=GoToHome()>
+                    START
+                </button>
+            </div>
+        </div>
+    </div>
+    <div class="site-footer">
+        <a href="https://www.fiverr.com/kylestclair/" class="fiverr"><i class="fa-brands fa-facebook"></i></a>
+        <a href="https://x.com/synrec_kaisyl" class="twitter"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://github.com/Synrec" class="github"><i class="fa-brands fa-github"></i></a>
+        <a href="https://www.linkedin.com/in/kyle-st-clair-jack-2a7642387/" class="linkedin"><i
+                class="fa-brands fa-linkedin"></i></a>
+        <a href="https://www.youtube.com/@Onidrako" class="youtube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://discord.gg/FZUqZGuvFH" class="discord"><i class="fa-brands fa-discord"></i></a>
+    </div>
+</body>
+
+</html>

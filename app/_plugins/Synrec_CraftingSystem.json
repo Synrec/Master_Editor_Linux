@@ -1,0 +1,1 @@
+{"name":"Synrec_CraftingSystem.js","params":[{"name":"RECIPE LIST","desc":"List of recipes in game","default":"[]","type":"struct<Recipe>[]","is_array":true}],"structs":[]}

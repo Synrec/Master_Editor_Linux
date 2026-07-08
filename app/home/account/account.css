@@ -1,0 +1,270 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css');
+
+* {
+    margin: 0%;
+}
+
+#three-canvas {
+    position: sticky;
+    min-width: 100dvw;
+    width: 100dvw;
+    min-height: 100dvh;
+    height: 100dvh;
+}
+
+#account-container {
+    position: absolute;
+    display: block;
+    justify-items: center;
+    justify-content: center;
+    margin: 4%;
+    min-width: 90dvw;
+    width: 90dvw;
+    max-width: 90dvw;
+    min-height: 90%;
+    height: 90%;
+    max-height: 90%;
+    background-color: #00000059;
+    border-radius: 12px;
+    border-style: groove;
+    z-index: 10;
+    overflow-y: auto;
+}
+
+#profile-header-div {
+    padding: 2%;
+    margin: 2%;
+    height: 6%;
+    width: 50%;
+    background-color: #686868a9;
+    color: #fff;
+    border-radius: 12px;
+    border-style: groove;
+    text-align: center;
+    font-size: 36px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+#profile-info-div {
+    padding: 2%;
+    margin: 2%;
+    width: 86%;
+    min-height: 60%;
+    background-color: #686868a9;
+    border-radius: 12px;
+    border-style: groove;
+    display: flex;
+}
+
+#linked-accounts-div {
+    padding: 2%;
+    margin: 2%;
+    min-height: 30%;
+    max-height: 50%;
+    min-width: 40%;
+    max-width: 46%;
+    background-color: #686868a9;
+    color: #fff;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+    overflow-y: auto;
+}
+
+#credits-history-div {
+    padding: 2%;
+    margin: 2%;
+    min-height: 30%;
+    max-height: 50%;
+    min-width: 40%;
+    max-width: 46%;
+    background-color: #686868a9;
+    color: #fff;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+    overflow-y: auto;
+}
+
+#linked-accounts-div {
+    display: block;
+}
+
+#linked-accounts-header {
+    padding: 2%;
+    margin: 2%;
+    border-radius: 12px;
+    border-style: groove;
+    text-align: center;
+    font-size: 24px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+#linked-accounts-area {
+    padding: 2%;
+    margin: 2%;
+    display: block;
+    background-color: #686868a9;
+    border-radius: 12px;
+    border-style: groove;
+    text-align: center;
+    font-size: 16px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+#account-link-div {
+    padding: 2%;
+    margin: 2%;
+    display: flex;
+}
+
+#account-link-icon {
+    padding: 1%;
+    margin: 1%;
+    background-color: #000;
+    border-radius: 24px;
+    border-style: groove;
+}
+
+#account-connected-text {
+    padding: 1%;
+    margin: 1%;
+    color: #ff3333;
+}
+
+#account-connect-button {
+    padding: 1%;
+    margin: 1%;
+    background-color: #f00;
+    border-radius: 24px;
+}
+
+#account-connect-button:hover {
+    background-color: #ff0;
+}
+
+#account-connect-button:active {
+    background-color: #606;
+    color: #fff;
+}
+
+#account-disconnect-button {
+    padding: 1%;
+    margin: 1%;
+    background-color: rgb(21, 255, 0);
+    border-radius: 24px;
+}
+
+#account-disconnect-button:hover {
+    background-color: rgb(255, 255, 0);
+}
+
+#account-disconnect-button:active {
+    background-color: rgb(252, 0, 0);
+    color: #fff;
+}
+
+#login-container {
+    width: 96%;
+    display: block;
+    justify-items: center;
+    justify-content: center;
+}
+
+#login-div {
+    margin: 1%;
+    padding: 1%;
+    width: 96%;
+    min-height: 70%;
+    max-height: 70%;
+    border-radius: 12px;
+    border-style: groove;
+    background-color: #00000059;
+    display: block;
+    align-items: center;
+    justify-items: center;
+    overflow-y: auto;
+}
+
+#login-button {
+    margin: 1%;
+    padding: 1%;
+    min-width: 96%;
+    max-width: 96%;
+    height: 20%;
+    border-radius: 12px;
+    border-style: groove;
+    display: block;
+    align-self: center;
+    justify-content: center;
+    font-size: 24px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+#login-explain-div {
+    margin: 1%;
+    padding: 1%;
+    width: 96%;
+    background-color: #00000059;
+    color: #fff;
+    border-radius: 12px;
+    border-style: groove;
+    text-align: center;
+    font-size: 36px;
+    font-family: "Silkscreen", sans-serif;
+}
+
+#home-button-div {
+    padding: 2%;
+    min-width: 90%;
+    width: 90%;
+    max-width: 90%;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    font-size: 72px;
+    display: flex;
+}
+
+#home-button {
+    border-radius: 12px;
+    border-style: groove;
+    color: #000;
+    background-color: #fff;
+    width: 33dvw;
+    height: 10dvh;
+}
+
+#home-button:hover {
+    border-radius: 12px;
+    border-style: groove;
+    color: #fff;
+    background-color: #000;
+}
+
+#home-button:active {
+    border-radius: 18px;
+    border-style: groove;
+    color: #f00;
+    background-color: #000;
+}
+
+.site-footer {
+    background-color: #000;
+    min-width: 0dvw;
+    width: 80dvw;
+    max-width: 90dvw;
+    justify-content: center;
+    justify-items: center;
+    align-content: center;
+    align-items: center;
+    display: flex;
+    border-radius: 12px;
+    border-style: groove;
+    font-size: 22px;
+    z-index: 999999999;
+}
