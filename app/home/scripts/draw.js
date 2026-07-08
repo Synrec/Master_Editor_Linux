@@ -1,4 +1,5 @@
 const { add, div } = require("three/tsl");
+const os = require("os");
 
 effekseer.initRuntime(effekseer_WasmUrl, () => { }, () => { });
 
@@ -1449,7 +1450,6 @@ async function CreateMapParam(div, param, navigation, plugin_json, plugin_name) 
     const map_file_list = data_dir.filter((filename) => {
         return (filename.match(/(Map[0-9]+)/gm));
     })
-    console.log(navigation)
     const map_files = map_file_list.map((filename) => {
         try {
             const file = fs.readFileSync(`${base_path}/project/data/${filename}`, 'utf8');
@@ -1606,7 +1606,7 @@ function CreateFileParam(div, param, navigation, plugin_json, plugin_name) {
     const img_file_types = [`.png`];
     const dir = param.dir;
     const base_path = process.cwd();
-    const main_path = `${base_path}/project/${dir}`;
+    const main_path = `file://${base_path}/project/${dir}`;
     const file_dir = fs.readdirSync(main_path, 'utf8');
     const ctrl_div = document.createElement('div');
     ctrl_div.className = "edit-input-container-div"
@@ -1864,7 +1864,7 @@ function CreateFileParam(div, param, navigation, plugin_json, plugin_name) {
         if (is_audio) {
             const aud_dom = document.createElement('audio');
             aud_dom.className = "card-file-aud";
-            aud_dom.src = `${main_path}/${file}`;
+            aud_dom.src = `file://${main_path}/${file}`;
             aud_dom.alt = file;
             aud_dom.preload = true;
             aud_dom.controls = true;
@@ -1873,7 +1873,7 @@ function CreateFileParam(div, param, navigation, plugin_json, plugin_name) {
         if (is_image) {
             const img_dom = document.createElement("img");
             img_dom.className = "card-file-img";
-            img_dom.src = `${main_path}/${file}`;
+            img_dom.src = `file://${main_path}/${file}`;
             img_dom.alt = file;
             card_content.appendChild(img_dom);
         }
@@ -3516,7 +3516,7 @@ async function CreateArrayFileEdit(
     const img_file_types = [`.png`];
     const dir = param.dir;
     const base_path = process.cwd();
-    const main_path = `${base_path}/project/${dir}`;
+    const main_path = `file://${base_path}/project/${dir}`;
     const file_dir = fs.readdirSync(main_path, 'utf8');
     const old_itm_edit = document.getElementById(`array-item-edit-block`);
     if (old_itm_edit) {
