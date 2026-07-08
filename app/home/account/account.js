@@ -12,30 +12,11 @@ class EditorAccount {
         this._connection_retries = 3;
         this._connect_code = null;
         this._server_url = `https://synrec-auth.fly.dev/`;
-        this.initConnect();
         this.openConnection();
     }
 
     serverUrl() {
         return this._server_url || "https://synrec.dev/";
-    }
-
-    initConnect() {
-        const connect_url = `ws://synrec-auth.fly.dev/connectLogin`;
-        const socket = new WebSocket(connect_url);
-        socket.addEventListener("open", (event) => {
-            socket.send(`{connection:true}`)
-        })
-        socket.addEventListener("message", (event) => {
-            socket.send(`${this._connect_code}`);
-        })
-        socket.addEventListener("error", (event) => {
-            socket.send(`error:error`);
-        })
-        socket.addEventListener("close", (event) => {
-            socket.send(`{connection:false}`);
-        })
-        this._connection_socket = socket;
     }
 
     openConnection() {
