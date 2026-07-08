@@ -1606,7 +1606,7 @@ function CreateFileParam(div, param, navigation, plugin_json, plugin_name) {
     const img_file_types = [`.png`];
     const dir = param.dir;
     const base_path = process.cwd();
-    const main_path = `file://${base_path}/project/${dir}`;
+    const main_path = `${base_path}/project/${dir}`;
     const file_dir = fs.readdirSync(main_path, 'utf8');
     const ctrl_div = document.createElement('div');
     ctrl_div.className = "edit-input-container-div"
