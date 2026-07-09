@@ -1,0 +1,1 @@
+["Synrec_Preloader","Synrec_MonsterCapture","Synrec_MapEnemies","Synrec_TextSounds","Synrec_BattleMovement","Synrec_Plugin_Backup","Synrec_LevelStats"]

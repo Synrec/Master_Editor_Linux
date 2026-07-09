@@ -85,7 +85,7 @@ async function GET_MASTER_EDITOR_PARAMETERS(file_name, original_parameters) {
         const param_str = CONVERT_EDITOR_JSON_TO_PARAMS(res_json);
         Synrec_Master_Editor.plugin_data[file_name].data = param_str;
         const parsed_editor_parameters = JSON.parse(param_str);
-        PluginManager.setParameters(file_name, parsed_editor_parameters);
+        PluginManager.setParameters(file_name.toLowerCase(), parsed_editor_parameters);
         await RELOAD_RPG_MAKER_PLUGINS();
         Synrec_Master_Editor.load_count++;
     }
