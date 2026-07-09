@@ -142,6 +142,7 @@ async function LoadSynrecPlugins(search) {
                 return IsValidSynrecPlugin(file, search);
             })
             if (list.length > 0) {
+                const plugin_file_names = []
                 load_list.forEach((loaded_plugin) => {
                     const name = loaded_plugin.name;
                     if (name) {
@@ -151,8 +152,10 @@ async function LoadSynrecPlugins(search) {
                         })
                         CreatePluginListButton(name, list_area, loaded_plugin);
                         UpdateSynrecPlugin(loaded_plugin);
+                        plugin_file_names.push(name.slice(0, name.indexOf('.')));
                     }
                 })
+                CreatePluginsLoadJSON(plugin_file_names);
                 message_area.textContent = "Plugins loaded. Select one to continue.";
             } else {
                 message_area.textContent = "No synrec plugins loaded.";
@@ -596,6 +599,25 @@ async function UpdateSynrecPlugin(loaded_plugin) {
     const configuration_data = await ConvertFileToJSON(file, name);
     await SavePluginObjectToFile(configuration_data, name);
     await UpdateProjectEditorObject(configuration_data, name);
+}
+
+async function CreatePluginsLoadJSON(names) {
+    console.log(names);
+    const names_str = JSON.stringify(names);
+    const base_path = process.cwd();
+    if (!fs.existsSync(`${base_path}/project`)) {
+        console.error(`"project" folder does not exist.`);
+        return;
+    }
+    if (!fs.existsSync(`${base_path}/project/js`)) {
+        console.error(`project javascript folder does not exist.`);
+        return;
+    }
+    if (!fs.existsSync(`${base_path}/project/js/plugins`)) {
+        console.error(`project javascript plugins folder does not exist.`);
+        return;
+    }
+    fs.writeFileSync(`${base_path}/project/js/plugins/_master_editor.txt`, names_str, 'utf8');
 }
 
 function ProcessKeyComparision(orig_data, plugin_data, nav, mod_data) {
