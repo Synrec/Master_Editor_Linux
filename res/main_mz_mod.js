@@ -208,7 +208,7 @@ class Preload {
 
     async generateAudioList() {
         this._generating_audio_list = true;
-        const url = `img/_master_editor.txt`;
+        const url = `audio/_master_editor.txt`;
         const xhr = new XMLHttpRequest();
         xhr.open("GET", url);
         xhr.onload = async function () {
@@ -221,6 +221,14 @@ class Preload {
             this._generating_audio_list = false;
         }
         await xhr.send();
+    }
+
+    generatingLists() {
+        return (
+            this._generating_audio_list ||
+            this._generating_image_list ||
+            this._generating_plugin_list
+        )
     }
 
     updateDataPreload() {
@@ -242,6 +250,12 @@ class Preload {
         }
         this.endDataPreload();
     }
+
+    async loadingPlugins() { }
+
+    async loadingImages() { }
+
+    async loadingSounds() { }
 
     endDataPreload() {
         this.erasePreloadScreen();
