@@ -170,3 +170,5 @@ function IsInvalidPlugin(name) {
     const array_chk = InvalidSynrecPlugins().concat(IgnoredPlugins());
     return array_chk.includes(name);
 }
+
+function RewriteRpgMakerMain() { }
