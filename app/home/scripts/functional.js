@@ -165,6 +165,28 @@ async function LoadSynrecPlugins(search) {
     this._loaded_plugins = load_list;
 }
 
+async function LoadImagePreload() {
+    const main_dir = `../../../project/img/`;
+    fs.readdir(main_dir, (e, r) => {
+        if (e) {
+            console.error(e);
+            return;
+        }
+        const list = [];
+    })
+}
+
+async function LoadAudioPreload() {
+    const main_dir = `../../../project/audio/`;
+    fs.readdir(main_dir, (e, r) => {
+        if (e) {
+            console.error(e);
+            return;
+        }
+        const list = [];
+    })
+}
+
 function IsStructType(type_text) {
     return (type_text || "").match(/(struct)<(\S+)>/gmi);
 }
