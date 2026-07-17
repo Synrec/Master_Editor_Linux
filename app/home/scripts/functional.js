@@ -166,24 +166,84 @@ async function LoadSynrecPlugins(search) {
 }
 
 async function LoadImagePreload() {
-    const main_dir = `../../../project/img/`;
-    fs.readdir(main_dir, (e, r) => {
+    const img_list = [];
+    const base_path = process.cwd();
+    const main_dir = `${base_path}/project/img/`;
+    fs.readdir(main_dir, { withFileTypes: true }, (e, r) => {
         if (e) {
             console.error(e);
             return;
         }
-        const list = [];
+        const folder_list = [];
+        for (let i = 0; i < r.length; i++) {
+            const dirent = r[i];
+            if (dirent.isFile()) continue;
+            folder_list.push(dirent.name);
+        }
+        const dir_reader = (path) => {
+            const base_path = process.cwd();
+            const main_dir = `${base_path}/project/img/`;
+            const dir_path = `${main_dir}${path}`;
+            const dirents = fs.readdirSync(dir_path, { withFileTypes: true });
+            for (let i = 0; i < dirents.length; i++) {
+                const dirent = dirents[i];
+                if (dirent.isFile()) {
+                    const name = dirent.name;
+                    if (name.match(/.*.png/g)) {
+                        img_list.push(`img/${path}/${name}`);
+                    }
+                } else {
+                    dir_reader(path.concat('/', dirent.name));
+                }
+            }
+        }
+        for (let q = 0; q < folder_list.length; q++) {
+            const fldr_name = folder_list[q];
+            dir_reader(fldr_name);
+        }
+        const img_str = JSON.stringify(img_list);
+        fs.writeFileSync(`${base_path}/project/img/_master_editor.txt`, img_str, 'utf8');
     })
 }
 
 async function LoadAudioPreload() {
-    const main_dir = `../../../project/audio/`;
-    fs.readdir(main_dir, (e, r) => {
+    const aud_list = [];
+    const base_path = process.cwd();
+    const main_dir = `${base_path}/project/audio/`;
+    fs.readdir(main_dir, { withFileTypes: true }, (e, r) => {
         if (e) {
             console.error(e);
             return;
         }
-        const list = [];
+        const folder_list = [];
+        for (let i = 0; i < r.length; i++) {
+            const dirent = r[i];
+            if (dirent.isFile()) continue;
+            folder_list.push(dirent.name);
+        }
+        const dir_reader = (path) => {
+            const base_path = process.cwd();
+            const main_dir = `${base_path}/project/audio/`;
+            const dir_path = `${main_dir}${path}`;
+            const dirents = fs.readdirSync(dir_path, { withFileTypes: true });
+            for (let i = 0; i < dirents.length; i++) {
+                const dirent = dirents[i];
+                if (dirent.isFile()) {
+                    const name = dirent.name;
+                    if (name.match(/.*.ogg/g) || name.match(/.*.m4a/g)) {
+                        aud_list.push(`audio/${path}/${name}`);
+                    }
+                } else {
+                    dir_reader(path.concat('/', dirent.name));
+                }
+            }
+        }
+        for (let q = 0; q < folder_list.length; q++) {
+            const fldr_name = folder_list[q];
+            dir_reader(fldr_name);
+        }
+        const aud_str = JSON.stringify(aud_list);
+        fs.writeFileSync(`${base_path}/project/audio/_master_editor.txt`, aud_str, 'utf8');
     })
 }
 
