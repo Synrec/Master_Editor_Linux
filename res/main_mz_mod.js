@@ -251,11 +251,23 @@ class Preload {
         this.endDataPreload();
     }
 
-    async loadingPlugins() { }
+    async loadingPlugins() {
+        if (this._plugin_list.length > 0) {
+            return true;
+        }
+    }
 
-    async loadingImages() { }
+    async loadingImages() {
+        if (this._image_list.length > 0) {
+            return true;
+        }
+    }
 
-    async loadingSounds() { }
+    async loadingSounds() {
+        if (this._audio_list.length > 0) {
+            return true;
+        }
+    }
 
     endDataPreload() {
         this.erasePreloadScreen();

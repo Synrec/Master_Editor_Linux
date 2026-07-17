@@ -171,4 +171,32 @@ function IsInvalidPlugin(name) {
     return array_chk.includes(name);
 }
 
-function RewriteRpgMakerMain() { }
+function GetProjectType() {
+    const base_path = process.cwd();
+    const has_mz = fs.existsSync(`${base_path}project/js/rmmz_core.js`);
+    const has_mv = fs.existsSync(`${base_path}project/js/rpg_core.js`);
+    if (has_mv) {
+        return "MV";
+    } else if (has_mz) {
+        return "MZ";
+    }
+    return "";
+}
+
+async function RewriteRpgMakerMain() {
+    const base_path = process.cwd();
+    const p_type = GetProjectType();
+    if (p_type == "MZ") {
+        const mod_url = `${base_path}/res/main_mz_mod.js`;
+        const modified_main = fs.readFileSync(mod_url, 'utf8');
+        fs.writeFileSync(`${base_path}/project/js/main.js`, modified_main, 'utf8');
+        alert("Rewrote main.js of MZ project");
+    } else if (p_type == "MV") {
+        const mod_url = `${base_path}/res/main_mv_mod.js`;
+        const modified_main = fs.readFileSync(mod_url, 'utf8');
+        fs.writeFileSync(`${base_path}/project/js/main.js`, modified_main, 'utf8');
+        alert("Rewrote main.js of MV project");
+    } else {
+        alert("Unable to determine project type!");
+    }
+}
