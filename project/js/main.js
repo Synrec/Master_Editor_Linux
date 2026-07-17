@@ -17,6 +17,49 @@ const scriptUrls = [
     "js/plugins.js"
 ];
 const effekseerWasmUrl = "js/libs/effekseer.wasm";
+const initial_master_editor_plugin_data = [];
+
+function CONVERT_EDITOR_JSON_TO_PARAMS(json) {
+    const obj = {};
+    const keys = Object.keys(json);
+    keys.forEach((key) => {
+        const data = json[key];
+        if (data.gen) {
+            if (data.list) {
+                obj[key] = JSON.stringify(
+                    data.list.map((arr_itm) => {
+                        const gen = arr_itm.gen;
+                        if (gen.no_struct) {
+                            return gen.value;
+                        } else {
+                            const converted_gen = CONVERT_EDITOR_JSON_TO_PARAMS(gen);
+                            return converted_gen;
+                        }
+                    })
+                )
+            } else {
+                const no_struct = data.gen.no_struct;
+                if (no_struct) {
+                    const value = data.gen.value;
+                    if (value) {
+                        obj[key] = value.toString();
+                    } else {
+                        obj[key] = value;
+                    }
+                } else {
+                    obj[key] = CONVERT_EDITOR_JSON_TO_PARAMS(data.gen);
+                }
+            }
+        } else {
+            if (data.value) {
+                obj[key] = data.value.toString();
+            } else {
+                obj[key] = data.value;
+            }
+        }
+    })
+    return JSON.stringify(obj);
+}
 
 class Main {
     constructor() {
@@ -155,7 +198,177 @@ class Main {
     }
 }
 
+class Preload {
+    constructor() {
+        this._plugin_list = [];
+        this._image_list = [];
+        this._audio_list = [];
+    }
+
+    start() {
+        this.drawLoadingScreen();
+        this.generatePluginConfigList();
+        this.generateImageList();
+        this.generateAudioList();
+        this.updateDataPreload();
+    }
+
+    async drawLoadingScreen() { }
+
+    async generatePluginConfigList() {
+        const preloader = this;
+        preloader._generating_plugin_list = true;
+        const url = `js/plugins/_master_editor.txt`;
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = async function () {
+            const res_str = xhr.responseText;
+            const list_arr = JSON.parse(res_str);
+            preloader._plugin_list = list_arr;
+            preloader._generating_plugin_list = false;
+        }
+        xhr.onerror = async function () {
+            preloader._generating_plugin_list = false;
+        }
+        await xhr.send();
+    }
+
+    async generateImageList() {
+        const preloader = this;
+        preloader._generating_image_list = true;
+        const url = `img/_master_editor.txt`;
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = async function () {
+            const res_str = xhr.responseText;
+            const list_arr = JSON.parse(res_str);
+            preloader._image_list = list_arr;
+            preloader._generating_image_list = false;
+        }
+        xhr.onerror = async function () {
+            preloader._generating_image_list = false;
+        }
+        await xhr.send();
+    }
+
+    async generateAudioList() {
+        const preloader = this;
+        preloader._generating_audio_list = true;
+        const url = `audio/_master_editor.txt`;
+        const xhr = new XMLHttpRequest();
+        xhr.open("GET", url);
+        xhr.onload = async function () {
+            const res_str = xhr.responseText;
+            const list_arr = JSON.parse(res_str);
+            preloader._audio_list = list_arr;
+            preloader._generating_audio_list = false;
+        }
+        xhr.onerror = async function () {
+            preloader._generating_audio_list = false;
+        }
+        await xhr.send();
+    }
+
+    generatingLists() {
+        return (
+            this._generating_audio_list ||
+            this._generating_image_list ||
+            this._generating_plugin_list
+        )
+    }
+
+    async updateDataPreload() {
+        if (this.generatingLists()) {
+            requestAnimationFrame(this.updateDataPreload.bind(this));
+            return;
+        }
+        if (await this.loadingPlugins()) {
+            requestAnimationFrame(this.updateDataPreload.bind(this));
+            return;
+        }
+        if (await this.loadingImages()) {
+            requestAnimationFrame(this.updateDataPreload.bind(this));
+            return;
+        }
+        if (await this.loadingSounds()) {
+            requestAnimationFrame(this.updateDataPreload.bind(this));
+            return;
+        }
+        this.endDataPreload();
+    }
+
+    async loadingPlugins() {
+        const preloader = this;
+        if (preloader._loading_plugin_data) {
+            return true;
+        }
+        const src = `js/plugins/data`;
+        if (preloader._plugin_list.length > 0) {
+            const list_item = preloader._plugin_list.shift();
+            if (!list_item) return false;
+            const xhr = new XMLHttpRequest();
+            xhr.open("GET", `${src}/${list_item}.json`);
+            xhr.onload = function () {
+                const res_string = xhr.responseText;
+                const res_json = JSON.parse(res_string);
+                const param_str = CONVERT_EDITOR_JSON_TO_PARAMS(res_json);
+                const parsed_editor_parameters = JSON.parse(param_str);
+                initial_master_editor_plugin_data.push({ name: list_item.toLowerCase(), data: parsed_editor_parameters });
+                preloader._loading_plugin_data = false;
+            }
+            xhr.onerror = function () {
+                preloader._loading_plugin_data = false;
+            }
+            xhr.send();
+            preloader._loading_plugin_data = true;
+            return true;
+        }
+        return false;
+    }
+
+    async loadingImages() {
+        const preloader = this;
+        if (preloader._image_list.length > 0) {
+            const list_item = preloader._image_list.shift();
+            if (!list_item) return false;
+            const img_src = document.createElement('img');
+            img_src.src = list_item;
+            document.head.appendChild(img_src);
+            document.head.removeChild(img_src);
+            return true;
+        }
+        return false;
+    }
+
+    async loadingSounds() {
+        const preloader = this;
+        if (preloader._audio_list.length > 0) {
+            const list_item = preloader._audio_list.shift();
+            if (!list_item) return false;
+            const aud_src = document.createElement('audio');
+            aud_src.src = list_item;
+            document.head.appendChild(aud_src);
+            document.head.removeChild(aud_src);
+            return true;
+        }
+        return false;
+    }
+
+    endDataPreload() {
+        this.erasePreloadScreen();
+        RUN_MAIN();
+    }
+
+    erasePreloadScreen() { }
+}
+
 const main = new Main();
-main.run();
+const preload = new Preload();
+
+function RUN_MAIN() {
+    main.run();
+}
+preload.start();
+// main.run();
 
 //-----------------------------------------------------------------------------
