@@ -92,7 +92,6 @@ class Main {
     }
 
     testXhr() {
-        console.log(this)
         const xhr = new XMLHttpRequest();
         xhr.open("GET", document.currentScript.src);
         xhr.onload = () => (this.xhrSucceeded = true);
