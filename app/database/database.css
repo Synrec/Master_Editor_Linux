@@ -126,4 +126,120 @@
     border-radius: 12px;
     min-width: 67dvw;
     min-height: 63dvh;
+    overflow-y: auto;
+}
+
+#actor-info-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 94%;
+    min-height: 45%;
+    display: block;
+}
+
+#actor-profile-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 94%;
+    min-height: 45%;
+}
+
+#actor-meta-data-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 94%;
+    min-height: 70%;
+}
+
+#actor-name-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 94%;
+    text-align: center;
+}
+
+#actor-init-data-div {
+    margin: 1%;
+    padding: 1%;
+    min-height: 30dvh;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    display: flex;
+}
+
+#actor-class-div {
+    margin: 1%;
+    padding: 1%;
+    min-width: 46%;
+    max-width: 46%;
+    min-height: 25dvh;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+}
+
+#actor-class-name-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    text-align: center;
+}
+
+#init-level-div {
+    margin: 1%;
+    margin-top: 15%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    text-align: center;
+}
+
+#max-level-div {
+    margin: 1%;
+    margin-top: 15%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    text-align: center;
+}
+
+#actor-equips-div {
+    margin: 1%;
+    padding: 1%;
+    min-width: 46%;
+    max-width: 46%;
+    min-height: 25dvh;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    overflow-y: auto;
+}
+
+#actor-equip-div {
+    margin: 1%;
+    margin-top: 4%;
+    margin-bottom: 4%;
+    padding: 1%;
+    min-height: 10%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    text-align: center;
 }

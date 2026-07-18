@@ -380,8 +380,76 @@ async function CreateDatabaseDisplay() {
 }
 
 async function DrawActorData(btn_elem, data) {
+    const class_database = await CLASSES_DATABASE();
+    const weapon_database = await WEAPONS_DATABASE();
+    const armor_database = await ARMORS_DATABASE();
     const data_display = document.getElementById("database-data-display");
+    const id = data.id;
     const name = data.name;
+    const nickname = data.nickname;
+    const initial_level = data.initialLevel;
+    const max_level = data.maxLevel;
+    const class_id = data.classId;
+    const class_data = class_database[class_id];
+    const profile = data.profile;
+    const equips = [];
+    for (let i = 0; i < data.equips.length; i++) {
+        const id = data.equips[i];
+        if (!id) {
+            equips[i] = "";
+            continue;
+        }
+        if (i == 0) {
+            equips[i] = weapon_database[id];
+        } else {
+            equips[i] = armor_database[id];
+        }
+    }
+    const data_note = data.note;
+    const actor_info_div = document.createElement("div");
+    actor_info_div.id = "actor-info-div";
+    data_display.appendChild(actor_info_div);
+    const actor_name_div = document.createElement("div");
+    actor_name_div.id = "actor-name-div";
+    actor_name_div.textContent = `${name} ${nickname ? `(${nickname})` : ""}`;
+    actor_info_div.appendChild(actor_name_div);
+    const init_data_div = document.createElement("div");
+    init_data_div.id = "actor-init-data-div";
+    actor_info_div.appendChild(init_data_div);
+    const actor_class_div = document.createElement("div");
+    actor_class_div.id = "actor-class-div";
+    init_data_div.appendChild(actor_class_div);
+    const class_name_div = document.createElement("div");
+    class_name_div.id = "actor-class-name-div";
+    class_name_div.textContent = `CLASS: ${class_data ? class_data.name : ""}`;
+    actor_class_div.appendChild(class_name_div);
+    const init_level_div = document.createElement("div");
+    init_level_div.id = "init-level-div";
+    init_level_div.textContent = `INITIAL LEVEL: ${data.initialLevel}`;
+    actor_class_div.appendChild(init_level_div);
+    const max_level_div = document.createElement("div");
+    max_level_div.id = "max-level-div";
+    max_level_div.textContent = `MAX LEVEL: ${data.maxLevel}`;
+    actor_class_div.appendChild(max_level_div);
+    const equips_div = document.createElement("div");
+    equips_div.id = "actor-equips-div";
+    init_data_div.appendChild(equips_div);
+    equips.forEach((equip) => {
+        const name = equip ? equip.name : "---";
+        const equip_div = document.createElement("div");
+        equip_div.id = "actor-equip-div";
+        equip_div.textContent = name;
+        equips_div.appendChild(equip_div);
+    })
+    if (profile) {
+        const profile_div = document.createElement("div");
+        profile_div.id = "actor-profile-div";
+        profile_div.textContent = profile;
+        data_display.appendChild(profile_div);
+    }
+    const meta_div = document.createElement("div");
+    meta_div.id = "actor-meta-data-div";
+    data_display.appendChild(meta_div);
 }
 
 async function SET_ACTORS_DISPLAY() {
