@@ -92,6 +92,7 @@ class Main {
     }
 
     testXhr() {
+        console.log(this)
         const xhr = new XMLHttpRequest();
         xhr.open("GET", document.currentScript.src);
         xhr.onload = () => (this.xhrSucceeded = true);
@@ -119,6 +120,8 @@ class Main {
             document.body.appendChild(script);
         }
         this.numScripts = scriptUrls.length;
+        preload.start();
+        this._preload_mode = true;
         window.addEventListener("load", this.onWindowLoad.bind(this));
         window.addEventListener("error", this.onWindowError.bind(this));
     }
@@ -154,6 +157,10 @@ class Main {
     }
 
     onWindowLoad() {
+        if (this._preload_mode) {
+            requestAnimationFrame(this.onWindowLoad.bind(this));
+            return;
+        }
         if (!this.xhrSucceeded) {
             const message = "Your browser does not allow to read local files.";
             this.printError("Error", message);
@@ -342,13 +349,23 @@ class Preload {
 
     async loadingSounds() {
         const preloader = this;
+        if (this._loading_aud) {
+            const aud = this._loading_aud;
+            if (aud.readyState == 4) {
+                document.head.removeChild(aud);
+                this._loading_aud = null;
+            } else {
+                return;
+            }
+        }
         if (preloader._audio_list.length > 0) {
             const list_item = preloader._audio_list.shift();
             if (!list_item) return false;
             const aud_src = document.createElement('audio');
             aud_src.src = list_item;
+            aud_src.preload = true;
             document.head.appendChild(aud_src);
-            document.head.removeChild(aud_src);
+            this._loading_aud = aud_src;
             return true;
         }
         return false;
@@ -356,19 +373,13 @@ class Preload {
 
     endDataPreload() {
         this.erasePreloadScreen();
-        RUN_MAIN();
+        main._preload_mode = false;
     }
 
     erasePreloadScreen() { }
 }
-
 const main = new Main();
 const preload = new Preload();
-
-function RUN_MAIN() {
-    main.run();
-}
-preload.start();
-// main.run();
+main.run();
 
 //-----------------------------------------------------------------------------
