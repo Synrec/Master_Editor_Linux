@@ -4,6 +4,9 @@
 
 PluginManager.setup($plugins);
 
-window.onload = function() {
+async function PreloadAssets() { }
+
+window.onload = async function () {
+    await PreloadAssets();
     SceneManager.run(Scene_Boot);
 };
