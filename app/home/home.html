@@ -33,7 +33,43 @@
         </script>
     </div>
     <div class="general-nav-bar">
-        <button class="general-nav-button" onclick="PlayTest()">
+        <script>
+            const menu = new nw.Menu({ type: "menubar" });
+            menu.append(
+                new nw.MenuItem({
+                    label: "PLAY TEST",
+                    tooltip: "Start play testing with live edit.",
+                    click: function () {
+                        this._test_window = window.open(`/project/index.html`);
+                    }
+                })
+            )
+            menu.append(
+                new nw.MenuItem({
+                    label: "DATABASE",
+                    click: function () {
+                        nw.Window.open('/app/database/database.html');
+                    }
+                })
+            )
+            menu.append(
+                new nw.MenuItem({
+                    label: "ADD LINKER PLUGIN",
+                    click: function () {
+                        const base_path = process.cwd();
+                        try {
+                            const synrec_sync_plugin = fs.readFileSync(`${base_path}/res/Synrec_Master_Editor.js`, 'utf8');
+                            fs.writeFileSync(`${base_path}/project/js/plugins/Synrec_Master_Editor.js`, synrec_sync_plugin);
+                            alert(`Master Editor RPG Maker Plugin Installed In Project Directory.\n\rInstall using RPG Maker Engine.`)
+                        } catch (e) {
+                            console.error(e);
+                        }
+                    }
+                })
+            )
+            nw.Window.get().menu = menu;
+        </script>
+        <!-- <button class="general-nav-button" onclick="PlayTest()">
             PLAY TEST
         </button>
         <button class="general-nav-button" onclick="OpenEngine()">
@@ -42,6 +78,9 @@
         <button class="general-nav-button" onclick="AddPlugin()">
             ADD LINKER PLUGIN
         </button>
+        <button class="general-nav-button" onclick="AddPlugin()">
+            MODIFY MAIN
+        </button> -->
     </div>
     <div class="plugin-editor">
         <div class="plugin-nav-bar">

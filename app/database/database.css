@@ -1,0 +1,129 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Tourney:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Distressed&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css');
+
+* {
+    margin: 0%;
+}
+
+#three-canvas {
+    position: sticky;
+    min-width: 100dvw;
+    width: 100dvw;
+    min-height: 100dvh;
+    height: 100dvh;
+}
+
+#database-div {
+    margin: 2%;
+    padding: 2%;
+    min-width: 92%;
+    min-height: 84%;
+    border-style: groove;
+    border-radius: 6px;
+    background-color: #55555550;
+    position: absolute;
+    z-index: 99999;
+    display: block;
+}
+
+#database-navbar-div {
+    margin: 0.5%;
+    padding: 0.5%;
+    min-width: 92%;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #55555550;
+    justify-content: center;
+    display: flex;
+    overflow-x: auto;
+}
+
+.database-nav-btn {
+    margin: 1%;
+    padding: 1%;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    color: #000;
+}
+
+.database-nav-btn:hover {
+    margin: 0.5%;
+    padding: 1.5%;
+    background-color: #0000008e;
+    color: #ffffff;
+}
+
+.database-nav-btn:active {
+    margin: 1.5%;
+    padding: 0.5%;
+    background-color: #500000;
+    color: #fffb00;
+}
+
+#database-display-div {
+    min-width: 92%;
+    min-height: 70dvh;
+    border-style: groove;
+    border-radius: 12px;
+    background-color: #ffffff50;
+    overflow-y: auto;
+    display: flex;
+}
+
+#database-display-list {
+    margin: 1%;
+    /* padding: 1%; */
+    min-width: 15dvw;
+    max-width: 15dvw;
+    min-height: 65dvh;
+    max-height: 65dvh;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    justify-content: center;
+    display: block;
+    overflow-y: auto;
+}
+
+#list-search-div {
+    margin: 1%;
+    margin-left: 0%;
+    margin-right: 0%;
+    padding: 1%;
+    padding-left: 0%;
+    padding-right: 4%;
+    min-width: 96%;
+    max-width: 96%;
+    background-color: #ffffffb6;
+    border-radius: 10px;
+    text-align: center;
+}
+
+#list-search-input {
+    margin: 1%;
+    padding: 1%;
+    border-radius: 6px;
+    min-width: 96%;
+    max-width: 96%;
+}
+
+#database-list-button {
+    margin: 1%;
+    padding: 1%;
+    border-radius: 12px;
+    min-width: 96%;
+    max-width: 96%;
+}
+
+#database-data-display {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 67dvw;
+    min-height: 63dvh;
+}
