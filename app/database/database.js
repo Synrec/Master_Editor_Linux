@@ -450,6 +450,52 @@ async function DrawActorData(btn_elem, data) {
     const meta_div = document.createElement("div");
     meta_div.id = "actor-meta-data-div";
     data_display.appendChild(meta_div);
+    const regExp = /<([^<>:]+)(:?)([^>]*)>/g;
+    const meta = {};
+    for (; ;) {
+        const match = regExp.exec(data.note);
+        if (match) {
+            if (match[2] === ":") {
+                meta[match[1]] = match[3];
+            } else {
+                meta[match[1]] = true;
+            }
+        } else {
+            break;
+        }
+    }
+    const meta_keys = Object.keys(meta);
+    for (let i = 0; i < meta_keys.length; i++) {
+        const key = meta_keys[i];
+        const value = meta[key];
+        const meta_data_div = document.createElement("div");
+        meta_data_div.className = "meta-note-div";
+        meta_div.appendChild(meta_data_div);
+        const key_div = document.createElement("div");
+        key_div.className = "meta-key-div";
+        meta_data_div.appendChild(key_div);
+        const key_label = document.createElement("label");
+        key_label.className = "meta-label";
+        key_label.textContent = 'KEY:';
+        key_div.appendChild(key_label);
+        const key_input = document.createElement("input");
+        key_input.className = "meta-input";
+        key_input.value = key;
+        key_input.oninput = function () { }
+        key_div.appendChild(key_input);
+        const value_div = document.createElement("div");
+        value_div.className = "meta-value-div";
+        meta_data_div.appendChild(value_div);
+        const value_label = document.createElement("label");
+        value_label.className = "meta-label";
+        value_label.textContent = 'VALUE:';
+        value_div.appendChild(value_label);
+        const value_input = document.createElement("input");
+        value_input.className = "meta-input";
+        value_input.value = value;
+        value_input.oninput = function () { }
+        value_div.appendChild(value_input);
+    }
 }
 
 async function SET_ACTORS_DISPLAY() {

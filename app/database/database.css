@@ -126,6 +126,7 @@
     border-radius: 12px;
     min-width: 67dvw;
     min-height: 63dvh;
+    max-height: 63dvh;
     overflow-y: auto;
 }
 
@@ -148,16 +149,6 @@
     border-radius: 12px;
     min-width: 94%;
     min-height: 45%;
-}
-
-#actor-meta-data-div {
-    margin: 1%;
-    padding: 1%;
-    background-color: #ffffff50;
-    border-style: groove;
-    border-radius: 12px;
-    min-width: 94%;
-    min-height: 70%;
 }
 
 #actor-name-div {
@@ -242,4 +233,62 @@
     border-style: groove;
     border-radius: 12px;
     text-align: center;
+}
+
+#actor-meta-data-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 94%;
+    min-height: 70%;
+    max-height: 70%;
+    overflow-y: auto;
+    display: block;
+}
+
+.meta-note-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 94%;
+    display: flex;
+}
+
+.meta-key-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 33%;
+    display: flex;
+}
+
+.meta-value-div {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 12px;
+    min-width: 33%;
+    display: flex;
+}
+
+.meta-label {
+    margin: 1%;
+    padding: 1%;
+    width: 32%;
+}
+
+.meta-input {
+    margin: 1%;
+    padding: 1%;
+    background-color: #ffffff50;
+    border-style: groove;
+    border-radius: 6px;
+    width: 60%;
 }
