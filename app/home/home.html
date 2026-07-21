@@ -39,16 +39,16 @@
                 new nw.MenuItem({
                     label: "PLAY TEST",
                     tooltip: "Start play testing with live edit.",
-                    click: function () {
-                        this._test_window = window.open(`/project/index.html`);
+                    click: async function () {
+                        window._test_window = window.open(`/project/index.html`);
                     }
                 })
             )
             menu.append(
                 new nw.MenuItem({
                     label: "DATABASE",
-                    click: function () {
-                        nw.Window.open('/app/database/database.html');
+                    click: async function () {
+                        await nw.Window.open('/app/database/database.html');
                     }
                 })
             )

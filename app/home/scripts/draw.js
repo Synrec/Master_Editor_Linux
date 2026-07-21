@@ -190,6 +190,11 @@ function CreateStructParamDisplay(param, navigation, plugin_name, plugin_json, s
         CreateNumberParam(param_div, param, navigation, plugin_json, plugin_name);
         return;
     }
+    if (type.match(/(select)/gmi)) {
+        if (old_name != param.name) navigation.push({ name: param.name, type: 'number', array: false })
+        CreateSelectParam(param_div, param, navigation, plugin_json, plugin_name);
+        return;
+    }
     if (type.match(/(animation)/gmi)) {
         if (old_name != param.name) navigation.push({ name: param.name, type: 'animation', array: false })
         CreateAnimationParam(param_div, param, navigation, plugin_json, plugin_name);
